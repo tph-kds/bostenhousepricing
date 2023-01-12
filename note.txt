@@ -1,0 +1,15 @@
+Create file requirement.txt to install them quickly
+_ Write a little code above into terminal
+==> pip install -r requirement.txt 
+
+==> It will install all of them into project
+
+----------------------------------------------------------------------
+
+Create environment :
+
+First, we need active "conda activate development"
+After enter terminal ``` conda Create ....  ```
+we need active it by "conda activate env/"
+
+==> And continue complete and finish the project
