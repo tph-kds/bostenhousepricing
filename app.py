@@ -2,18 +2,18 @@ import pickle
 from flask import Flask , request , url_for , render_template , app , jsonify
 import numpy as np
 import pandas as pd
-import sklearn
+
 
 app = Flask(__name__)
 ## Load The model 
-model = pickle.load(open("regression_model.pkl" , 'rb'))
+model = pickle.load(open('regression_model.pkl' , 'rb'))
 scaler = pickle.load(open('scaling.pkl' , 'rb'))
 
 @app.route('/')
 def home():
     return render_template('home.html')
 
-@app.route('/predict_api' , method = ['POST'])
+@app.route('/predict_api' , methods = ['POST'])
 def predict_api():
     data = request.json['data']
     print(data)
@@ -22,7 +22,7 @@ def predict_api():
     output = model.predict(new_data)
     print(output[0])
     return jsonify(output[0])
-@app.route('/predict' , method = ['POST'])
+@app.route('/predict' , methods = ['POST'])
 def predict():
     data = [float(x) for x in request.form.values()]
     final_input = scaler.transform(np.array(data).reshape(1 , -1))
